@@ -9,6 +9,7 @@ Game::Game() {
   SetTargetFPS(60);
 
   this->window = std::move(window);
+  this->board = Board();
 }
 
 void Game::draw() {
@@ -17,11 +18,12 @@ void Game::draw() {
 
   this->backgroundColor.ClearBackground();
 
-  DrawText("Press [SPACE] to start", 20, 20, 20, BLACK);
+  this->board.draw();
 
   EndDrawing();
 }
 
 void Game::update() {
   // Update the game
+  this->board.update();
 }
